@@ -19,7 +19,7 @@ from django.urls import path,include
 from cbvapp import views
 urlpatterns = [
     # path('',views.Classname.as_view()),
-    path('',views.Myclass.as_view()),
+    path('',views.Myclass.as_view(),name='home'),
     path('company/', include('cbvapp.urls')),
     path('admin/', admin.site.urls),
 ]

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body style="font-family: Arial, sans-serif; background-color: #f9f9f9; color: #2c3e50;margin: 0;">
+    <div
+        style="position: sticky; top: 0; z-index: 999; display: flex; align-items: center; justify-content: space-between; background-color: #1a1f36; padding: 1vh 2vw; border-bottom: 2px solid #d4af37;">
+        <div style="display: flex; align-items: center;">
+            <h3
+                style="color: #d4af37; margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; letter-spacing: 1px; font-weight: 700;">
+                Car-Becho.com
+            </h3>
+        </div>
+
+        <ul class="nav nav-tabs" id="navId" role="tablist"
+            style="display: flex; gap: 3vw; list-style: none; margin: 0; padding: 0;">
+            <li class="nav-item" role="presentation">
+                <a href="{% url 'home' %}" class="nav-link active"
+                    style="color: #dcdcdc; font-weight: 600; border: none; background-color: transparent; transition: color 0.3s, border-bottom 0.3s; text-decoration: none; border-bottom: 2px solid #d4af37;">Home</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a href="{% url 'list' %}" class="nav-link"
+                    style="color: #dcdcdc; font-weight: 600; border: none; background-color: transparent; transition: color 0.3s, border-bottom 0.3s; text-decoration: none;">All
+                    Companies</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a href="{% url 'create' %}" class="nav-link"
+                    style="color: #dcdcdc; font-weight: 600; border: none; background-color: transparent; transition: color 0.3s, border-bottom 0.3s; text-decoration: none;">Add
+                    Company</a>
+            </li>
+        </ul>
+    </div>
+    <script>
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('mouseover', () => {
+                link.style.color = '#d4af37';
+                link.style.borderBottom = '2px solid #d4af37';
+            });
+            link.addEventListener('mouseout', () => {
+                if (!link.classList.contains('active')) {
+                    link.style.color = '#dcdcdc';
+                    link.style.borderBottom = 'none';
+                }
+            });
+        });
+    </script>
+
+
+    {% block content %}
+
+    {% endblock %}
+</body>
+
+</html>
