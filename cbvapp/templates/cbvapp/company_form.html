@@ -1,12 +1,28 @@
 {% extends 'base.html' %}
 {% block content %}
+<div
+    style="background-color: white; border: 2px solid #333; width: 30vw; border-radius: 12px; padding: 2rem; margin-top: 3vh; margin-left: auto; margin-right: auto; box-shadow: 0 4px 12px rgba(0,0,0,0.1); font-family: Arial, sans-serif;">
 
-<div class="container">
-    <div class="jumbotron">
-        <h1>Add New Company</h1>
+    {% if form.instance.pk %}
+    <h1 style="font-size: 2rem; color: #2c3e50; margin-bottom: 1rem;">Add New Company</h1>
+    <form method="POST">
+        {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" class="btn btn-primary" value="ADD">
-    </div>
+        <input type="submit" value="ADD"
+            style="background-color: #007bff; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 6px; cursor: pointer; font-weight: 600; transition: background-color 0.3s;"
+            onmouseover="this.style.backgroundColor='#0056b3';" onmouseout="this.style.backgroundColor='#007bff';">
+    </form>
+    {% else %}
+    <h1 style="font-size: 2rem; color: #2c3e50; margin-bottom: 1rem;">Add New Company</h1>
+    <form method="POST">
+        {% csrf_token%}
+        {{form.as_p}}
+        <input type="submit" value="ADD"
+            style="background-color: #007bff; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 6px; cursor: pointer; font-weight: 600; transition: background-color 0.3s;"
+            onmouseover="this.style.backgroundColor='#0056b3';" onmouseout="this.style.backgroundColor='#007bff';">
+    </form>
+    {% endif %}
 </div>
+
 
 {% endblock %}

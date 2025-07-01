@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import View,TemplateView,ListView,DetailView,CreateView
+from django.views.generic import View,TemplateView,ListView,DetailView,CreateView,UpdateView
 from cbvapp.models import Company,Product
 
 # Create your views here.
@@ -22,3 +22,6 @@ class AddNewCompany(CreateView):
     model=Company
     fields='__all__'
 
+class CompanyUpdate(UpdateView):
+    model=Company
+    fields=['name','ceo']
