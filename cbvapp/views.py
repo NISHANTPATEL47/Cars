@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.views.generic import View,TemplateView,ListView,DetailView,CreateView,UpdateView
+from django.views.generic import View,TemplateView,ListView,DetailView,CreateView,UpdateView,DeleteView
 from cbvapp.models import Company,Product
+from django.urls import reverse_lazy 
 
 # Create your views here.
 # class Classname(View):
@@ -25,3 +26,7 @@ class AddNewCompany(CreateView):
 class CompanyUpdate(UpdateView):
     model=Company
     fields=['name','ceo']
+
+class CompanyDelete(DeleteView):   
+    model=Company
+    success_url = reverse_lazy('list')

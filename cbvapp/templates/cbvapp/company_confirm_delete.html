@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <div class="container"
+        style="background-color: white; border: 2px solid #333; width: 60vw; border-radius: 12px; padding: 2rem;margin-top:3vh; margin-inline: auto; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);">
+
+        <h1 style="text-align: center; color: #2c3e50; margin-bottom: 2rem;">Do you want to delete {{ company.name }} ...?</h1>
+
+        <form  method="POST">
+            {%csrf_token%}
+            <input type="submit" value="DELETE">
+        </form>
+        <a href="{% url 'list'%}">CANCEL...?</a>
+    </div>
+
+{% endblock %}
